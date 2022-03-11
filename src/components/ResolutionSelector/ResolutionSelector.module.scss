@@ -1,0 +1,260 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    border-bottom: 1px solid #252930;
+    min-height: 40px;
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: rgb(22, 26, 30);
+    display: flex;
+    align-items: center;
+
+    .row {
+        height: 24px;
+        display: flex;
+    }
+}
+
+.quickMenu {
+    display: flex;
+
+    .quickBtn {
+        box-sizing: border-box;
+        margin: 0px 8px 0px 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #848e9c;
+        cursor: pointer;
+        font-size: 12px;
+        line-height: 16px;
+        padding: 4px;
+        border-radius: 2px;
+
+        &.active, &:hover {
+            color: #f0b90b;
+        }
+    }
+}
+
+.dropDown {  
+    box-sizing: border-box;
+    margin: 0px;
+    min-width: 0px;
+    display: flex;
+    flex: 1 0 auto;
+    align-items: center;
+    justify-content: center;
+    color: #848e9c;
+    font-size: 12px;
+    line-height: 16px;
+    padding: 4px;
+    border-radius: 2px;
+    max-width: 50px;
+    height: 100%;
+    position: relative;
+
+    &:hover, &.show {
+        .dropDownBtn {  
+            svg {
+                transform: rotate(180deg);
+            }
+        }
+        .dropDownDialog {
+            display: block;
+        }
+    }
+
+    .dropDownBtn {  
+        box-sizing: border-box;
+        margin: 0px;
+        min-width: 0px;
+        font-size: 20px;
+        fill: currentcolor;
+        color: #848e9c;
+        // width: 1em;
+        height: 1em;
+        padding: 2px;
+        cursor: pointer;
+        display: flex;
+
+        &:hover {  
+            color: #eaecef;
+
+            svg {
+                transform: rotate(180deg);
+            }
+        }
+
+        svg {
+            transition: transform 0.2s ease 0s, color 0.2s ease 0s;
+        }
+
+        .selectedOption {  
+            color: #f0b90b;
+            font-size: 12px;
+            line-height: 16px;
+        }
+    }
+
+    .dropDownDialog {
+        z-index: 1000;
+        position: absolute;
+        top: 24px;
+        left: 0;
+        display: none;
+
+        .dialogContent {
+            box-sizing: border-box;
+            margin: 8px 0px 0px;
+            min-width: 0px;
+            display: flex;
+            background-color: #23282d;
+            flex-direction: column;
+            box-shadow: rgba(20, 21, 26, 0.1) 0px 0px 1px, rgba(71, 77, 87, 0.08) 0px 7px 14px, rgba(20, 21, 26, 0.08) 0px 3px 6px;
+            border-radius: 4px;
+            padding: 12px 16px 2px;
+            width: 300px;
+        }
+
+        .dialogHeader {    
+            box-sizing: border-box;
+            margin: 0px 0px 12px;
+            min-width: 0px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+
+            .headerText {
+                color: #848e9c;
+                font-size: 12px;
+            }
+
+            button {
+                margin: 0px;
+                appearance: none;
+                user-select: none;
+                cursor: pointer;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                box-sizing: border-box;
+                font-family: inherit;
+                text-align: center;
+                text-decoration: none;
+                outline: currentcolor none medium;
+                min-width: 40px;
+                border-radius: 4px;
+                line-height: 16px;
+                font-size: 12px;
+                word-break: keep-all;
+                min-height: 24px;
+                border: medium none;
+                color: rgb(240, 185, 11);
+                font-weight: 400;
+                padding: 0px;
+                background-image: none;
+                background-color: transparent;
+
+                &:hover {
+                    box-shadow: none;
+                    background-color: rgb(252, 213, 53);
+                    opacity: 0.9;
+                }
+            }
+        }
+
+        .intervalOptions {
+            box-sizing: border-box;
+            margin: 0px;
+            min-width: 0px;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+
+            label {  
+                box-sizing: border-box;
+                margin: 0px;
+                margin-bottom: 0px;
+                min-width: 0px;
+                display: flex;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 1.43;
+                color: #eaecef;
+                width: 60px;
+                height: 24px;
+                position: relative;
+                transition: background-color 0.2s ease 0s;
+                cursor: pointer;
+                background-color: rgba(71, 77, 87, 0.5);
+                border-radius: 2px;
+                align-items: center;
+                justify-content: center; 
+                margin-bottom: 10px;
+
+                &:hover {
+                    background-color: #474d57;
+                }
+
+                &.active {
+                    background-color: rgba(240, 185, 11, 0.15);
+
+                    &:hover {  
+                        background-color: rgba(240, 185, 11, 0.3);
+                    }
+
+                    .checkBox {
+                        .icon {
+                            background: #f0b90b none repeat scroll 0% 0%;
+                        }
+                    }
+                }
+                 
+                .text {  
+                    box-sizing: border-box;
+                    margin: 0px;
+                    min-width: 0px;
+                    color: #eaecef;
+                    font-size: 12px;
+                }
+
+                .checkBox {  
+                    box-sizing: border-box;
+                    margin: 0px;
+                    min-width: 0px;
+                    position: absolute;
+                    top: -6.5px;
+                    right: -6.5px;
+                    
+                    .icon {  
+                        box-sizing: border-box;
+                        margin: 0px;
+                        min-width: 0px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 16px;
+                        height: 16px;
+                        border-radius: 100%;
+                        background: rgb(94, 102, 115) none repeat scroll 0% 0%;
+
+                        svg {
+                            color: #23282d;
+                            font-size: 13px;
+                            fill: #23282d;
+                            width: 1em;
+                            height: 1em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
